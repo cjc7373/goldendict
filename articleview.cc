@@ -2328,11 +2328,13 @@ Config::InputPhrase ArticleView::getPhrase() const
 
 void ArticleView::print( QPrinter * printer ) const
 {
+#ifdef USE_QTWEBKIT
+  ui.definition->print( printer );
+#else
   // TODO (Qt WebEngine): port this function and its uses to QWebEnginePage::print(). From the documentation:
   // "It is the users responsibility to ensure the printer remains valid until resultCallback has been called." =>
   // consider capturing sptr< QPrinter > MainWindow::printer by value and calling sptr::reset() in the resultCallback.
-#ifdef USE_QTWEBKIT
-  ui.definition->print( printer );
+  Q_UNUSED( printer )
 #endif
 }
 
