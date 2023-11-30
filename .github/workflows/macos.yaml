@@ -8,6 +8,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: ~/Library/Caches/Homebrew/downloads/
+        key: brew-cache
     - name: Install deps
       run: brew install bzip2 ffmpeg hunspell libao libtiff libvorbis lzo opencc xz zstd libao libogg qt@5
     - name: set env
