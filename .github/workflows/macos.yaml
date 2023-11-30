@@ -1,0 +1,17 @@
+name: macos build
+on: [push]
+jobs:
+  build:
+    run-on: macos-12
+    steps:
+    - name: Install deps
+      run: brew install bzip2 ffmpeg hunspell libao libtiff libvorbis lzo opencc xz zstd libao libogg qt@5
+    - name: qmake
+      run: qmake "CONFIG+=use_qtwebengine" "CONFIG+=no_epwing_support" "CONFIG+=chinese_conversion_support" "CONFIG+=zim_support"
+    - name: build
+      run: make -j8
+    - name: upload app
+      uses: actions/upload-artifact@v3
+      with:
+        name: app
+        path: GoldenDict.app
