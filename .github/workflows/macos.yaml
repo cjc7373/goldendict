@@ -12,6 +12,8 @@ jobs:
         key: brew-cache
     - name: Install deps
       run: brew install bzip2 ffmpeg hunspell libao libtiff libvorbis lzo opencc xz zstd libao libogg qt@5
+    - name: debug info
+      run: brew info libvorbis
     - name: set env
       run: |
         echo "/usr/local/opt/qt@5/bin" >> $GITHUB_PATH
