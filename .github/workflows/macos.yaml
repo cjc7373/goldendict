@@ -4,8 +4,17 @@ jobs:
   build:
     runs-on: macos-12
     steps:
+    - name: cache brew downloads
+      uses: actions/cache@v3
+      with:
+        path: ~/Library/Caches/Homebrew/downloads/
     - name: Install deps
       run: brew install bzip2 ffmpeg hunspell libao libtiff libvorbis lzo opencc xz zstd libao libogg qt@5
+    - name: set env
+      run: |
+        export PATH="/usr/local/opt/qt@5/bin:$PATH"
+        export LDFLAGS="-L/usr/local/opt/qt@5/lib"
+        export CPPFLAGS="-I/usr/local/opt/qt@5/include"
     - name: qmake
       run: qmake "CONFIG+=use_qtwebengine" "CONFIG+=no_epwing_support" "CONFIG+=chinese_conversion_support" "CONFIG+=zim_support"
     - name: build
