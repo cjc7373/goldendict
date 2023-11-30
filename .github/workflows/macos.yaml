@@ -2,7 +2,7 @@ name: macos build
 on: [push]
 jobs:
   build:
-    run-on: macos-12
+    runs-on: macos-12
     steps:
     - name: Install deps
       run: brew install bzip2 ffmpeg hunspell libao libtiff libvorbis lzo opencc xz zstd libao libogg qt@5
