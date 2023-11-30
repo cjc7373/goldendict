@@ -2,7 +2,7 @@ name: macos build
 on: [push]
 jobs:
   build:
-    runs-on: macos-12
+    runs-on: macos-11
     steps:
     - uses: actions/checkout@v4
     - name: cache brew downloads
@@ -15,8 +15,8 @@ jobs:
     - name: set env
       run: |
         echo "/usr/local/opt/qt@5/bin" >> $GITHUB_PATH
-        echo "LDFLAGS=-L/usr/local/opt/qt@5/lib" >> "$GITHUB_ENV"
-        echo "CPPFLAGS=-I/usr/local/opt/qt@5/include" >> "$GITHUB_ENV"
+        # echo "LDFLAGS=-L/usr/local/opt/qt@5/lib" >> "$GITHUB_ENV"
+        # echo "CPPFLAGS=-I/usr/local/opt/qt@5/include" >> "$GITHUB_ENV"
     - name: qmake
       run: qmake "CONFIG+=use_qtwebengine" "CONFIG+=no_epwing_support" "CONFIG+=chinese_conversion_support" "CONFIG+=zim_support"
     - name: build
