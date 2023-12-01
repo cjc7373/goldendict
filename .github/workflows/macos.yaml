@@ -16,8 +16,14 @@ jobs:
       run: qmake "CONFIG+=use_qtwebengine" "CONFIG+=chinese_conversion_support" "CONFIG+=zim_support" "CONFIG+=static"
     - name: build
       run: make -j8
+    - name: add execute permission
+      run: chmod +x GoldenDict.app/Contents/MacOS/GoldenDict
+    - name: move app to a dedicated folder
+      run: |
+        mkdir dist
+        mv GoldenDict.app dist/
     - name: upload app
       uses: actions/upload-artifact@v3
       with:
         name: app
-        path: GoldenDict.app
+        path: dist
