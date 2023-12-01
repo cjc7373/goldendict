@@ -242,6 +242,7 @@ mac {
         -lhunspell-1.7.0 \
         -llzo2
     INCLUDEPATH += /opt/homebrew/include
+    INCLUDEPATH += /usr/local/include
     LIBS += -L/opt/homebrew/lib -framework AppKit -framework Carbon
     !CONFIG( no_ffmpeg_player ) {
         LIBS += -lao \
