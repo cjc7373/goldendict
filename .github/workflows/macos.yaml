@@ -13,7 +13,7 @@ jobs:
         echo "LDFLAGS=-L/usr/local/opt/qt@5/lib" >> "$GITHUB_ENV"
         echo "CPPFLAGS=-I/usr/local/opt/qt@5/include" >> "$GITHUB_ENV"
     - name: qmake
-      run: qmake "CONFIG+=use_qtwebengine" "CONFIG+=chinese_conversion_support" "CONFIG+=zim_support"
+      run: qmake "CONFIG+=use_qtwebengine" "CONFIG+=chinese_conversion_support" "CONFIG+=zim_support" "CONFIG+=static"
     - name: build
       run: make -j8
     - name: upload app
