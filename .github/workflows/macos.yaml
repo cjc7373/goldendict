@@ -19,7 +19,7 @@ jobs:
     - name: add execute permission
       run: chmod +x GoldenDict.app/Contents/MacOS/GoldenDict
     - name: copy qt lib
-      run: cp -nR /usr/local/opt/qt@5/lib GoldenDict.app/Contents/Frameworks/
+      run: cp -nR /usr/local/opt/qt@5/lib/ GoldenDict.app/Contents/Frameworks/
     - name: move app to a dedicated folder
       run: |
         mkdir dist
