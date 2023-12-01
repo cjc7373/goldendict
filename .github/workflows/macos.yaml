@@ -11,7 +11,7 @@ jobs:
         path: ~/Library/Caches/Homebrew/downloads/
         key: brew-cache
     - name: Install deps
-      run: brew install bzip2 ffmpeg hunspell libao libtiff libvorbis lzo opencc xz zstd libao libogg qt@5
+      run: brew install bzip2 ffmpeg hunspell libao libtiff libvorbis lzo opencc xz zstd libao libogg pkg-config qt@5
     - name: debug info
       run: brew info libvorbis
     - name: set env
