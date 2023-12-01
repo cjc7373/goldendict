@@ -103,7 +103,7 @@ win32 {
         # QMAKE_CXXFLAGS_RELEASE += /GL # slows down the linking significantly
         LIBS += -lshell32 -luser32 -lsapi -lole32
         Debug: LIBS+= -lhunspelld
-        Release: LIBS+= -lhunspell-1.6.1
+        Release: LIBS+= -lhunspell
         HUNSPELL_LIB = hunspell
     } else {
         CONFIG(gcc48) {
@@ -241,9 +241,8 @@ mac {
         -logg \
         -lhunspell-1.7.0 \
         -llzo2
-    INCLUDEPATH += /opt/homebrew/include
     INCLUDEPATH += /usr/local/include
-    LIBS += -L/opt/homebrew/lib -framework AppKit -framework Carbon
+    LIBS += -L/usr/local/lib -framework AppKit -framework Carbon
     !CONFIG( no_ffmpeg_player ) {
         LIBS += -lao \
             -lswresample \
