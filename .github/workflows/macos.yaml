@@ -20,12 +20,10 @@ jobs:
       run: chmod +x GoldenDict.app/Contents/MacOS/GoldenDict
     - name: copy qt lib
       run: cp -nR /usr/local/opt/qt@5/lib/ GoldenDict.app/Contents/Frameworks/
-    - name: move app to a dedicated folder
-      run: |
-        mkdir dist
-        mv GoldenDict.app dist/
+    - name: zip app
+      run: zip app.zip -r GoldenDict.app
     - name: upload app
       uses: actions/upload-artifact@v3
       with:
         name: app
-        path: dist
+        path: app.zip
