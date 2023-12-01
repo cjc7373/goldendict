@@ -14,7 +14,7 @@ jobs:
       run: brew install bzip2 ffmpeg hunspell libao libtiff libvorbis lzo opencc xz zstd libao libogg qt@5
     - name: debug info
       run: |
-        ls -alh /opt/homebrew/include
+        brew --prefix
         ls -alh /usr/local/include
     - name: set env
       run: |
