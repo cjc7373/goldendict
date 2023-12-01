@@ -2,7 +2,7 @@ name: macos build
 on: [push]
 jobs:
   build:
-    runs-on: macos-12
+    runs-on: macos-11
     steps:
     - uses: actions/checkout@v4
     - name: Install qt
