@@ -12,10 +12,10 @@ jobs:
     - name: set env
       run: |
         echo "$PWD/5.15.2/clang_64/bin/" >> $GITHUB_PATH
-        # echo "LDFLAGS=-L/usr/local/opt/qt@5/lib" >> "$GITHUB_ENV"
-        # echo "CPPFLAGS=-I/usr/local/opt/qt@5/include" >> "$GITHUB_ENV"
-        echo "QMAKE_CXXFLAGS += -I$PWD/5.15.2/clang_64/include" >> goldendict.pro
-        echo "QMAKE_CFLAGS += -I$PWD/5.15.2/clang_64/include" >> goldendict.pro
+        echo "LDFLAGS=-L$PWD/5.15.2/clang_64/lib" >> "$GITHUB_ENV"
+        echo "CPPFLAGS=-I$PWD/5.15.2/clang_64/include" >> "$GITHUB_ENV"
+        # echo "QMAKE_CXXFLAGS += -I$PWD/5.15.2/clang_64/include" >> goldendict.pro
+        # echo "QMAKE_CFLAGS += -I$PWD/5.15.2/clang_64/include" >> goldendict.pro
         # echo "LIBS += $PWD/5.15.2/clang_64/lib" >> goldendict.pro
     - name: qmake
       run: qmake "CONFIG+=use_qtwebengine" "CONFIG+=chinese_conversion_support" "CONFIG+=zim_support"
