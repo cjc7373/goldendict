@@ -23,8 +23,8 @@ jobs:
       run: make -j8
     - name: add execute permission
       run: chmod +x GoldenDict.app/Contents/MacOS/GoldenDict
-    - name: copy qt lib
-      run: cp -nR /usr/local/opt/qt@5/lib/ GoldenDict.app/Contents/Frameworks/
+    - name: run macdeployqt
+      run: macdeployqt GoldenDict.app
     - name: zip app
       run: zip app.zip -r GoldenDict.app
     - name: upload app
